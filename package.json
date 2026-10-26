@@ -1,0 +1,44 @@
+{
+  "name": "fakestata",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,green \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "tsx watch src/server/index.ts",
+    "dev:client": "vite",
+    "start": "vite",
+    "start:api": "tsx src/server/index.ts",
+    "build": "vite build",
+    "tunnel": "vk-tunnel --insecure=1 --http-protocol=http --ws-protocol=ws --host=0.0.0.0 --port=5173",
+    "deploy": "vk-miniapps-deploy",
+    "test": "vitest run",
+    "backtest": "tsx src/cli/backtest.ts"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.1.4",
+    "@vkontakte/icons": "^3.75.0",
+    "@vkontakte/vk-bridge": "^3.0.2",
+    "@vkontakte/vk-bridge-react": "^2.0.1",
+    "@vkontakte/vk-mini-apps-router": "^1.8.6",
+    "@vkontakte/vkui": "^8.4.1",
+    "hono": "^4.13.13",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "@vkontakte/vk-miniapps-deploy": "^1.0.3",
+    "@vkontakte/vk-tunnel": "^0.2.10",
+    "concurrently": "^10.0.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.3"
+  }
+}
